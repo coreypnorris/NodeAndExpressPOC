@@ -3,5 +3,5 @@
 [Following along with this online course.](https://app.pluralsight.com/library/courses/nodejs-express-web-applications-building/table-of-contents)
 
 ## Instructions
-- Run `node app.js` in the terminal to start the app.
-- Run `set DEBUG=* & node app.js` or `set DEBUG=app & node app.js` in the terminal to start the app in DEBUG MODE.
+- Run `npm start` in the terminal to start the app.
+- Run `npm run debug` in the terminal to start the app in DEBUG MODE.

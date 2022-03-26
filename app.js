@@ -5,6 +5,7 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // setup middleware
 // app.use(morgan('combined')); // use this to see maximum information in the logs.
@@ -17,6 +18,6 @@ app.get('/', (req, res) => {
 });
 
 // start web application
-app.listen(3000, () => {
-  debug(`Listening on port ${chalk.green('3000')}`);
+app.listen(PORT, () => {
+  debug(`Listening on port ${chalk.green(PORT)}`);
 });
