@@ -12,9 +12,14 @@ const PORT = process.env.PORT || 3000;
 app.use(morgan('tiny')); // use this to see minimal information in the logs.
 app.use(express.static(path.join(__dirname, '/public')));
 
+// setup templating engine (EJS)
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
+
 // setup routing
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  // res.send('Hello World');
+  res.render('index', {title: 'Welcome to Globomantics', data: ['a', 'b', 'c']});
 });
 
 // start web application
