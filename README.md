@@ -4,3 +4,4 @@
 
 ## Instructions
 - Run `node app.js` in the terminal to start the app.
+- Run `set DEBUG=* & node app.js` or `set DEBUG=app & node app.js` in the terminal to start the app in DEBUG MODE.
