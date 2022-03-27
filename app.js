@@ -1,4 +1,5 @@
 // setup constants
+require('dotenv').config()
 const express = require("express");
 const chalk = require("chalk");
 const debug = require("debug")("app");
@@ -27,6 +28,9 @@ app.get("/", (req, res) => {
 
 const sessionsRouter = require("./src/routers/sessionsRouter");
 app.use("/sessions", sessionsRouter);
+
+const adminRouter = require("./src/routers/adminRouter");
+app.use("/admin", adminRouter);
 
 // start web application
 app.listen(PORT, () => {
