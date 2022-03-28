@@ -1,7 +1,16 @@
 const express = require("express");
 const debug = require("debug")("app:sessionRouter");
 const { MongoClient, ObjectId } = require("mongodb");
+const speakerService = require("../services/speakerService");
 const sessionsRouter = express.Router();
+
+sessionsRouter.use((req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect("auth/signIn");
+  }
+});
 
 sessionsRouter.route("/").get((req, res) => {
   (async function mongo() {
@@ -33,6 +42,8 @@ sessionsRouter.route("/:id").get((req, res) => {
         .collection("sessions")
         .findOne({ _id: new ObjectId(id) });
 
+      const speaker = await speakerService.getSpeakerById(1);
+      session.speaker = speaker.data;
       res.render("session", { session });
     } catch (error) {
       debug(error.stack);
